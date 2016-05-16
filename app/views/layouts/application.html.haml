@@ -1,0 +1,15 @@
+%html(lang="en")
+  %head
+    %meta(charset="utf-8")
+    %meta{:content => "utf-8", "http-equiv" => "encoding"}/
+    %meta(http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1")
+    %meta(name="viewport" content="width=device-width, initial-scale=1.0")
+    %meta{:content => "IE=edge", "http-equiv" => "X-UA-Compatible"}
+    %title= content_for?(:title) ? yield(:title) : "Flickr Search"
+    = csrf_meta_tags
+    = stylesheet_link_tag "application", :media => "all"
+    = javascript_include_tag "application"
+    %link{:href => "https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css", :rel => "stylesheet"}
+    %body
+      .container
+        = yield

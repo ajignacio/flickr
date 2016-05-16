@@ -1,0 +1,26 @@
+.jumbotron
+  = form_tag '/', method: 'get' do
+    %h2 Flickr Photo Search
+    .form-group
+      = text_field_tag "search", params[:search],class: "form-control"
+    %br
+    = submit_tag "Search", class:"btn btn-primary"
+.row
+  - @search_flickr.each do |s|
+    .col-lg-4.text-center
+      %a{"data-target" => "#myModal_#{s[:id]}", "data-toggle" => "modal", :href => "#"}
+        = image_tag("#{s[:url]}", size: "300x250", alt: "Unknown", title: "#{s[:title]}")
+      = render 'photo_details', locals: {id: s[:id], url: s[:url], title: s[:title], taken: s[:taken], desc: s[:description]}
+      %br
+      %br
+  .text-center
+    = will_paginate @search_flickr
+
+:javascript
+
+  $('#myModal').click(function(){
+    $('#myModal').modal('show');
+  })
+
+
+

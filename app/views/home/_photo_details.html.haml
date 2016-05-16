@@ -1,0 +1,17 @@
+.modal.fade{"aria-labelledby" => "myModalLabel", id: "myModal_#{locals[:id]}", :role => "dialog", :tabindex => "-1"}
+  .modal-dialog{:role => "document"}
+    .modal-content
+      .modal-header
+        %h4#myModalLabel.modal-title
+          = locals[:title]
+          %br
+          Date:
+          = locals[:taken].to_date.strftime("%Y-%m-%d")
+      .modal-body
+        %table.table
+          = image_tag("#{locals[:url]}")
+      .modal-footer
+        .text-center
+          = locals[:desc]
+
+
