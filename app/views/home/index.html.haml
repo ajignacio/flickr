@@ -13,6 +13,8 @@
       = render 'photo_details', locals: {id: s[:id], url: s[:url], title: s[:title], taken: s[:taken], desc: s[:description]}
       %br
       %br
+
+.row
   .text-center
     = will_paginate @search_flickr
 
